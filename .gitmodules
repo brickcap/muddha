@@ -1,0 +1,6 @@
+[submodule "hexo-theme-material"]
+	path = hexo-theme-material
+	url = ./hexo/hexo-theme-material/
+[submodule "DopeTrope-Jekyll-Theme"]
+	path = DopeTrope-Jekyll-Theme
+	url = ./jekyll/DopeTrope-Jekyll-Theme/
