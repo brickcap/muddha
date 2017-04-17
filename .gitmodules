@@ -4,3 +4,6 @@
 [submodule "DopeTrope-Jekyll-Theme"]
 	path = DopeTrope-Jekyll-Theme
 	url = ./jekyll/DopeTrope-Jekyll-Theme/
+[submodule "hugo/hugo-creative-portfolio-theme"]
+	path = hugo/hugo-creative-portfolio-theme
+	url = https://github.com/kishaningithub/hugo-creative-portfolio-theme.git
