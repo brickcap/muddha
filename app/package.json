@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "fine-uploader": "^5.14.2",
-    "quill": "^1.2.4"
+    "quill": "^1.2.4",
+    "slick-carousel": "^1.6.0"
   }
 }
