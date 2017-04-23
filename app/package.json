@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fine-uploader": "^5.14.2"
+    "fine-uploader": "^5.14.2",
+    "quill": "^1.2.4"
   }
 }
