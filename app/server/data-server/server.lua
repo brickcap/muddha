@@ -50,19 +50,25 @@ local db_update = function(db_name,db_type,query)
    -- partial updates will not be supported
    local db = get_db(db_name,db_type)
    db:exec("BEGIN TRANSACTION")
-   -- json insert to 
-   local bind_statement = assert(db:prepare(string.format([[UPDATE %s
-SET datacol = ?, coltype = ?,WHERE %s;]]),query.on,query.value.id))
-   for k,v in pairs(query.value.update) do
-      bind_stmt:bind_value(v)
+
+   local update_statement = assert(db:prepare(string.format("UPDATE %s SET datacol = ?, coltype = ?,WHERE row=%s;"),query.on,query.key))
+
+   for k,v in pairs(query.value) do
+      update_stmt:bind_value(v)
    end
-   bind_stmt:step()
-   bind_stmt:reset()
+   update_stmt:step()
+   update_stmt:reset()
    return db:exec("COMMIT;")
 end
 
 local db_delete = function(db_name,db_type,query)
    -- create a prepared statement here
+   local db = get_db(db_name,db_type)
+   db:exec("BEGIN TRANSACTION")
+   local delete_statement = assert(db:prepare(string.format("DELETE FROM %s WHERE row=%s;"),query.on,query.key))
+   delete_stmt:step()
+   delete_stmt:reset()
+   return db:exec("COMMIT;")
 end
 
 -- create other methods for backing up and cloning of databases
