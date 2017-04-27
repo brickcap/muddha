@@ -1,0 +1,1 @@
+Please refer to the configuration page on jekyllrb.com: http://jekyllrb.com/docs/configuration/

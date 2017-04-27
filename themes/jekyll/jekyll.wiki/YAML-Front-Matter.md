@@ -1,0 +1,1 @@
+This page has moved to the docs under the header [Front-matter](http://jekyllrb.com/docs/frontmatter/).

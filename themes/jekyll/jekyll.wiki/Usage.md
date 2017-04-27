@@ -1,0 +1,1 @@
+This page has moved to the docs under the header [Usage](http://jekyllrb.com/docs/usage/).

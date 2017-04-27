@@ -1,0 +1,3 @@
+Q: Why do we need date in the filename?
+
+A: https://github.com/jekyll/jekyll/issues/2282#issuecomment-41921190[The idea for putting it in the title is to enforce the idea that posts are date-centric. It's part of jekyll's "blog-aware" features.]

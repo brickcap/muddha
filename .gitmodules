@@ -1,12 +1,12 @@
 [submodule "hexo-theme-material"]
-	path = ./hexo/hexo-theme-material
-	url = ./hexo/hexo-theme-material/
+	path = ./themes/hexo/hexo-theme-material
+	url = ./themes/hexo/hexo-theme-material/
 [submodule "DopeTrope-Jekyll-Theme"]
-	path = ./jekyll/DopeTrope-Jekyll-Theme
-	url = ./jekyll/DopeTrope-Jekyll-Theme/
+	path = ./themes/jekyll/DopeTrope-Jekyll-Theme
+	url = ./themes/jekyll/DopeTrope-Jekyll-Theme/
 [submodule "hugo/hugo-creative-portfolio-theme"]
-	path = hugo/hugo-creative-portfolio-theme
+	path = themes/hugo/hugo-creative-portfolio-theme
 	url = https://github.com/kishaningithub/hugo-creative-portfolio-theme.git
 [submodule "jekyll/jekyll.wiki"]
-	path = jekyll/jekyll.wiki
+	path = themes/jekyll/jekyll.wiki
 	url = https://github.com/jekyll/jekyll.wiki.git

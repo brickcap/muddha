@@ -1,0 +1,13 @@
+Was jekyll inspired by "hobix":http://github.com/whymirror/hobix?
+
+Inquiring minds want to know.
+
+One needs to look no further than the link behind ""textile enabled"":http://redcloth.org/hobix.com/textile/quick.html to see the word hobix all over the place.
+
+--justinperkins
+
+<hr />
+
+As far as I know, "here's the inspiration":http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html.
+
+--qrush

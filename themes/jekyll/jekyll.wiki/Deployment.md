@@ -1,0 +1,1 @@
+This documentation has moved to the docs site under Deployment. The content has been split up into [GitHub Pages Deployment](http://jekyllrb.com/docs/github-pages/) and [Other Methods of Deployment](http://jekyllrb.com/docs/deployment-methods/).
