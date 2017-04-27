@@ -5,7 +5,8 @@
   print(type(lcurl))
  local turbo = require("turbo")
   local s = require "-lsqlite3complete"
-  s.open("test")
+  local db = s.open("./data/test.lite")
+  db:load_extension("./sqlite_extensions/json1")
   print(s:version())
 -- Create a new requesthandler with a method get() for HTTP GET.
 local HelloWorldHandler = class("HelloWorldHandler", turbo.web.RequestHandler)
