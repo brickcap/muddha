@@ -1,27 +1,25 @@
 local l_packages = require("load_packages")
 local sqlite = require("-lsqlite3complete")
 local turbo = require("turbo")
--- Create a new requesthandler with a method get() for HTTP GET.
+-- Create a new request handler with a method get() for HTTP GET.
 
 local get_db = function(db_type,db_name)
    -- creates a new database or
    -- returns a handler to an existing database
    
    local db = sqlite:open("data/"..db_name)
-   -- crete a full text search virtual table
+   -- create a full text search virtual table
    -- on the databases
    
-   if db_type == "user" then
-      -- encrypt this database with an sqlite extention
-      -- index the table on the email field so that it may
-      -- be eaiser to query
+   if db_type == "meta" then
+      -- encrypt this database with an sqlite extension
+      -- index the user table on the email field so that it may
+      -- be easier to query
    end
    if db_type == "booking" then
      
    end
 
-   if db_type == "meta" then
-      end
 
    if db_type == "commerce" then
    end
