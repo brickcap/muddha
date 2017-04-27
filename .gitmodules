@@ -10,3 +10,9 @@
 [submodule "jekyll/jekyll.wiki"]
 	path = themes/jekyll/jekyll.wiki
 	url = https://github.com/jekyll/jekyll.wiki.git
+[submodule "themes/admin/gentelella"]
+	path = themes/admin/gentelella
+	url = https://github.com/puikinsh/gentelella
+[submodule "themes/ecommerce/lscloud-theme-coastal"]
+	path = themes/ecommerce/lscloud-theme-coastal
+	url = https://github.com/lemonstand/lscloud-theme-coastal
