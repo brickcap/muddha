@@ -36,7 +36,7 @@ end
 local db_post = function(db_name,db_type,query)
    local db = get_db(db_name,db_type)
    db:exec("BEGIN TRANSACTION")   
-   local insert_stmt = assert(db:prepare(string.format("INSERT INTO %s VALUES (NULL, ?, ?);"),query.key) )
+   local insert_stmt = assert(db:prepare(string.format("INSERT INTO %s VALUES (NULL, ?, ?);"),query.on) )
    for k,v in pairs(query.value)do
       insert_stmt:bind_value(v)
    end
@@ -46,13 +46,14 @@ local db_post = function(db_name,db_type,query)
 end
 
 local db_update = function(db_name,db_type,query)
-   -- updates will be to whole document
-   -- partial updates are not supported
+   -- updates will be to whole row
+   -- partial updates will not be supported
    local db = get_db(db_name,db_type)
    db:exec("BEGIN TRANSACTION")
    -- json insert to 
-   local bind_statement = ""
-   for k,v in pairs(query.value) do
+   local bind_statement = assert(db:prepare(string.format([[UPDATE %s
+SET datacol = ?, coltype = ?,WHERE %s;]]),query.on,query.value.id))
+   for k,v in pairs(query.value.update) do
       bind_stmt:bind_value(v)
    end
    bind_stmt:step()
