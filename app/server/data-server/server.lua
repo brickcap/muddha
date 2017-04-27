@@ -34,15 +34,15 @@ function HelloWorldHandler:get()
    self:write({what="Hello World!"})
 end
 
-local LoginHandler = class("LoginHandler",turbo.web.RequestHandler)
-function LoginHandler:post()
+local SessionHandler = class("SessionHandler",turbo.web.RequestHandler)
+function SessionHandler:post()
 end
-function LoginHandler:get()
+function SessionHandler:get()
+end
+function SessionHandler:delete()
 end
 
-local LogoutHandler = class("LogoutHandler",turbo.web.RequestHandler)
-function LogoutHandler:post()
-end
+
 
 -- Create an Application object and bind our HelloWorldHandler to the route '/hello'.
 local app = turbo.web.Application:new({
