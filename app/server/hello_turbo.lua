@@ -1,13 +1,14 @@
+package.path = package.path ..";./?.so"
 print(package.path)
 
-local lfs = require("libs/-lfs")
-local lcurl = require("libs/-lcurl")
-print(type(lfs.attributes))
-print(type(lcurl))
+-- local lfs = require("libs/-lfs")
+-- local lcurl = require("libs/-lcurl")
+-- print(type(lfs.attributes))
+-- print(type(lcurl))
 local turbo = require("turbo")
-local s = require "libs/-lsqlite3complete"
-s.open("test")
-print(s:version())
+-- local s = require "libs/-lsqlite3complete"
+-- s.open("test")
+-- print(s:version())
 -- Create a new requesthandler with a method get() for HTTP GET.
 local HelloWorldHandler = class("HelloWorldHandler", turbo.web.RequestHandler)
 function HelloWorldHandler:get()
