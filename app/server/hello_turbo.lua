@@ -1,12 +1,13 @@
 
- local lfs = require("-lfs")
- local lcurl = require("-lcurl")
+ local lfs = require("lib/-lfs")
+ local lcurl = require("lib/-lcurl")
   print(type(lfs.attributes))
   print(type(lcurl))
  local turbo = require("turbo")
-  local s = require "-lsqlite3complete"
-  local db = s.open("./data/test.lite")
-  db:load_extension("./sqlite_extensions/json1")
+  local s = require "lib/-lsqlite3complete"
+  local db = s.open("lib/test.lite")
+  local res = db:load_extension("lib/json1")
+  print(res)
   print(s:version())
 -- Create a new requesthandler with a method get() for HTTP GET.
 local HelloWorldHandler = class("HelloWorldHandler", turbo.web.RequestHandler)
