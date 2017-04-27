@@ -1,3 +1,4 @@
 /logs/
 /app/server/data/
 node_modules
+*.lite
