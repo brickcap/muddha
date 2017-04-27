@@ -1,3 +1,5 @@
+package.path = package.path .. ";lib/?/?.lua"
+package.path = package.path .. ";lib/?.lua"
 
  local lfs = require("lib/-lfs")
  local lcurl = require("lib/-lcurl")
