@@ -29,6 +29,24 @@ local get_db = function(db_type,db_name)
    return db   
 end
 
+local db_get = function(db_name,db_type,query)
+   -- create prepared statements here
+end
+
+local db_post = function(db_name,db,_type,query)
+   -- create a prepared statement here
+end
+
+local db_update = function(db_name,db_type,query)
+   -- create a prepared statement here
+end
+
+local db_delete = function(db_name,db_type,query)
+   -- create a prepared statement here
+end
+
+-- create other methods for backing up and cloning of databases
+   
 local HelloWorldHandler = class("HelloWorldHandler", turbo.web.RequestHandler)
 function HelloWorldHandler:get()
    self:write({what="Hello World!"})
@@ -40,6 +58,16 @@ end
 function SessionHandler:get()
 end
 function SessionHandler:delete()
+end
+
+local DBHandler = class("DBHandler",turbo.web.RequestHandler)
+function DBHandler:post()
+end
+function DBHandler:get()
+end
+function DBHandler:delete()
+end
+function DBHandler:update()
 end
 
 
