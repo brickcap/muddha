@@ -8,16 +8,19 @@ local get_db = function(db_type,db_name)
    -- returns a handler to an existing database
    
    local db = sqlite:open("data/"..db_name)
+   db:load_extension("lib/json1")
    -- create a full text search virtual table
    -- on the databases
    
    if db_type == "meta" then
-      -- encrypt this database with an sqlite extension
+      -- encrypt this database with the sqlite extension
       -- index the user table on the email field so that it may
       -- be easier to query
+      
    end
    if db_type == "booking" then
-     
+      db:exec("CREATE TABLE meta (id INTEGER PRIMARY KEY, cols TEXT, type TEXT );")
+      db:exec("CREATE TABLE book (id INTEGER PRIMARY KEY, cols TEXT, type TEXT );")
    end
 
 
