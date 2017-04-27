@@ -33,12 +33,31 @@ local db_get = function(db_name,db_type,query)
    -- create prepared statements here
 end
 
-local db_post = function(db_name,db,_type,query)
-   -- create a prepared statement here
+local db_post = function(db_name,db_type,query)
+   local db = get_db(db_name,db_type)
+   db:exec("BEGIN TRANSACTION")   
+   local insert_stmt = assert(db:prepare(string.format("INSERT INTO %s VALUES (NULL, ?, ?);"),query.key) )
+   for k,v in pairs(query.value)do
+      insert_stmt:bind_value(v)
+   end
+   insert_stmt:step()
+   insert_stmt:reset()
+   return db:exec("COMMIT;")
 end
 
 local db_update = function(db_name,db_type,query)
-   -- create a prepared statement here
+   -- updates will be to whole document
+   -- partial updates are not supported
+   local db = get_db(db_name,db_type)
+   db:exec("BEGIN TRANSACTION")
+   -- json insert to 
+   local bind_statement = ""
+   for k,v in pairs(query.value) do
+      bind_stmt:bind_value(v)
+   end
+   bind_stmt:step()
+   bind_stmt:reset()
+   return db:exec("COMMIT;")
 end
 
 local db_delete = function(db_name,db_type,query)
@@ -74,9 +93,11 @@ end
 
 -- Create an Application object and bind our HelloWorldHandler to the route '/hello'.
 local app = turbo.web.Application:new({
-      {"/hello", HelloWorldHandler}
+      {"/hello", HelloWorldHandler},
+      {"/db",DBHandler},
+      {"/session",SessionHandler}
 })
 
--- Set the server to listen on port 8888 and start the ioloop.
+
 app:listen(10000)
 turbo.ioloop.instance():start()
