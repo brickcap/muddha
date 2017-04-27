@@ -11,7 +11,5 @@ package.path = package.path .. ";lib/?/?.lua"
 
 package.path = package.path .. ";"
 
-print(package.path)
-print(package.searchpath('pl.pretty',package.path))
 
 return true
