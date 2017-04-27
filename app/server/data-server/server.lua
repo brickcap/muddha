@@ -62,7 +62,6 @@ local db_update = function(db_name,db_type,query)
 end
 
 local db_delete = function(db_name,db_type,query)
-   -- create a prepared statement here
    local db = get_db(db_name,db_type)
    db:exec("BEGIN TRANSACTION")
    local delete_statement = assert(db:prepare(string.format("DELETE FROM %s WHERE row=%s;"),query.on,query.key))
