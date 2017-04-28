@@ -20,7 +20,7 @@ local get_db = function(db_type,db_name)
       -- index the user table on the email field so that it may
       -- be easier to query
       db:exec("CREATE TABLE meta (id INTEGER PRIMARY KEY, datacol TEXT, coltype TEXT );")
-      db:exec("CREATE TABLE user (id INTEGER PRIMARY KEY, datacol TEXT, email TEXT );")
+      db:exec("CREATE TABLE user (id INTEGER PRIMARY KEY, datacol TEXT, coltype TEXT );")
 
       
    end
@@ -35,8 +35,8 @@ end
 local db_get = function(db_name,db_type,query)
    local db = get_db(db_name,db_type)
    local r_val = {}
-   local q_smt = assert(db:prepare(string.format("SELECT datacol from %s,json_tree(%.datacol)WHERE json_tree.key=? and json_tree.value=? and coltype=?;",query.on)))
-   q_smt:bind_values(query.key,query.value, query.type)
+   local q_smt = assert(db:prepare(string.format("SELECT datacol from %s,json_tree(%.datacol)WHERE coltype=? and json_tree.key=? and json_tree.value=?;",query.on)))
+   q_smt:bind_values(query.type,query.key, query.value)
       for row in q_smt:nrows() do 
       table.insert(r_val,row.datacol)
    end
