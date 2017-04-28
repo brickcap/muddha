@@ -1,4 +1,5 @@
 local l_packages = require("load_packages")
+require("pl")
 local sqlite = require("-lsqlite3complete")
 local turbo = require("turbo")
 -- Create a new request handler with a method get() for HTTP GET.
@@ -6,6 +7,8 @@ local turbo = require("turbo")
 local get_db = function(db_type,db_name)
    -- creates a new database or
    -- returns a handler to an existing database
+
+   -- TODO: Perform a check on whether a database file exists or not
    
    local db = sqlite:open("data/"..db_name)
    db:load_extension("lib/json1")
@@ -16,6 +19,9 @@ local get_db = function(db_type,db_name)
       -- encrypt this database with the sqlite extension
       -- index the user table on the email field so that it may
       -- be easier to query
+      db:exec("CREATE TABLE meta (id INTEGER PRIMARY KEY, datacol TEXT, coltype TEXT );")
+      db:exec("CREATE TABLE user (id INTEGER PRIMARY KEY, datacol TEXT, email TEXT );")
+
       
    end
    if db_type == "booking" then
@@ -23,14 +29,11 @@ local get_db = function(db_type,db_name)
       db:exec("CREATE TABLE book (id INTEGER PRIMARY KEY, datacol TEXT, coltype TEXT );")
    end
 
-
-   if db_type == "commerce" then
-   end
    return db   
 end
 
 local db_get = function(db_name,db_type,query)
-   -- create prepared statements here
+   local db = get_db(db_name,db_type)
 end
 
 local db_post = function(db_name,db_type,query)
