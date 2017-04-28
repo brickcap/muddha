@@ -34,6 +34,13 @@ end
 
 local db_get = function(db_name,db_type,query)
    local db = get_db(db_name,db_type)
+   local r_val = {}
+   local q_smt = assert(db:prepare(string.format("SELECT datacol from %s,json_tree(%.datacol)WHERE json_tree.key=? and json_tree.value=? and coltype=?;",query.on)))
+   q_smt:bind_values(query.key,query.value, query.type)
+      for row in q_smt:nrows() do 
+      table.insert(r_val,row.datacol)
+   end
+      return {count=#r_val,res=r_val}
 end
 
 local db_post = function(db_name,db_type,query)
