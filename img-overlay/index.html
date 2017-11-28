@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Image overlay framework</title>
+  </head>
+  <style>
+    body {
+	padding: 20px;
+	font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+    }
+
+    div.wrapper{
+	float:left; /* important */
+	position:relative; /* important(so we can absolutely position the description div */
+}
+	div.description{
+	    position:absolute; /* absolute position (so we can position it where we want)*/
+	    bottom:0px; /* position will be on bottom */
+	    left:0px;
+	    width:100%;
+	    /* styling bellow */
+	    background-color:black;
+	    color:white;
+	    opacity:0.6; /* transparency */
+	    filter:alpha(opacity=60); /* IE transparency */
+	}
+	p.description_content{
+	    padding:10px;
+	    margin:0px;
+	    font-size: 30px;
+	}
+
+  </style>
+  <body>
+    <div class='wrapper'>
+      <!-- image -->
+      <img src='https://s30.postimg.org/6q74do2ip/hair_headphone_hearing300.jpg' />
+      <!-- description div -->
+      <div class='description'>
+	<!-- description content -->
+	<p class='description_content'>Text over image with transparency applied</p>
+	<!-- end description content -->
+      </div>
+      <!-- end description div -->
+    </div>
+
+  </body>
+</html>
